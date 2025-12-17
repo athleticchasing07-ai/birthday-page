@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Divyanshi Aloo Bhalu Kachalu Baby Bacha Noni Aha Tmatar Chote Mazedaar ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins&display=swap" rel="stylesheet">
+<style>
+  /* Basic styling */
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #fff0f6;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+  }
+
+  /* Music Video */
+  #musicVideo {
+    width: 300px;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    margin: 20px auto;
+    display: block;
+  }
+
+  /* Gallery Vertical */
+  .gallery.vertical img {
+    display: block;
+    margin: 15px auto;
+    max-width: 80%;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+  }
+  .gallery.vertical img:hover {
+    transform: scale(1.05);
+  }
+
+  /* Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  .modal.show {
+    display: flex;
+  }
+  .modal-box {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
+    text-align: left;
+    transform: scale(0.7);
+    transition: transform 0.4s ease;
+  }
+  .modal.show .modal-box {
+    transform: scale(1);
+  }
+  .modal-box h3 {
+    margin-top: 0;
+    font-family: 'Playfair Display', serif;
+    color: #ff4081;
+  }
+  .modal-box p {
+    font-size: 16px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+  .close {
+    float: right;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    color: #888;
+    user-select: none;
+  }
+  .close:hover {
+    color: #ff4081;
+  }
+
+  /* Paragraph & headings */
+  .heading { font-size: 28px; color: #ff4081; margin-bottom: 10px; }
+  .wish { font-size: 18px; margin-bottom: 20px; }
+  .sub { font-size: 22px; margin: 20px 0; }
+  .paragraph { font-size: 16px; margin: 20px auto; max-width: 600px; line-height: 1.5; }
+  .love { font-size: 24px; margin: 20px 0; color: red; }
+
+</style>
+</head>
+<body>
+
+<!-- FLOATING HEARTS -->
+<div class="hearts-container"></div>
+
+<!-- MUSIC VIDEO -->
+<video id="musicVideo" poster="thumbnail.jpg" onclick="playMusicVideo()">
+  <source src="music.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<!-- COUNTDOWN LOCK -->
+<div id="lock">
+  <h1>💖 Something Special Awaits 💖</h1>
+  <p id="timer"></p>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="content" class="hidden">
+
+  <h1 class="heading">
+    Happy Birthday Divyanshi<br>
+    Aloo Bhalu Kachalu Hello Kitty Panda Baby 🎂
+  </h1>
+
+  <div class="wish">
+    You are not just my favorite person,<br>
+    you are my safest place, my smile, my happiness ❤️
+  </div>
+
+  <h2 class="sub">Our Beautiful Memories (Click karo sab photos pe lol) 📸</h2>
+
+  <!-- PHOTOS VERTICAL -->
+  <div class="gallery vertical">
+    <img src="images/pic1.jpg" onclick="openModal('5th of September','The day we took our first picture together i remember you were looking so cute when i came in your class i was excited to come there but everytime i came there i blushed so hard 💕')">
+    <img src="images/pic2.jpg" onclick="openModal('21st of April 2025','I cant describe this picture coz i have lack of vocabulary, i remember once i sent you a picture of dybala (an argentine footballer) with his partner and i told you like us when and you got it doe for me, more than grateful golu 🥺')">
+    <img src="images/pic3.jpg" onclick="openModal('4th of December 2024','our first heather day i remember we both were getting our pics clicked by my friend and a nerdy guy raghav was giving us stares but we got each other ❤️')">
+    <img src="images/pic4.jpg" onclick="openModal('29th of August 2025','this is the unforgettable picture the last time we met before shifting to narela i remember you broght so many things just for me and i was too emotional on my way back to home ✨')">
+    <img src="images/pic5.jpg" onclick="openModal('13th of November 2025','The day i came after my dadus surgery & i remember traumatizing you w my chem notes, thank you sm noni bacha for listening my nerdy yap that day 💞')">
+    <img src="images/pic6.jpg" onclick="openModal('17th of January 2025','Everytime i see this picture a tear drops from my eyes i just feel back the pain i felt that day when i realised that this is it of my school life but we are for eternity 💖')">
+  </div>
+
+  <div class="paragraph">
+    Divyanshi, you are my calm in chaos and my happiest place.<br><br>
+    Every dream feels closer with you beside me.<br><br>
+    I promise to love you louder on hard days and softer on quiet ones.
+  </div>
+
+  <div class="love">I Love You ❤️</div>
+
+</div>
+
+<!-- MODAL POPUP -->
+<div id="modal" class="modal">
+  <div class="modal-box">
+    <span class="close" onclick="closeModal()">×</span>
+    <h3 id="modalDate"></h3>
+    <p id="modalText"></p>
+  </div>
+</div>
+
+<script>
+  // Play video function
+  function playMusicVideo() {
+    const video = document.getElementById("musicVideo");
+    video.play().catch(err => {
+      alert("Video play blocked. Click again to start.");
+      console.error("Play blocked:", err);
+    });
+  }
+
+  // Modal functions
+  function openModal(date, text) {
+    const modal = document.getElementById("modal");
+    modal.style.display = "flex";
+    modal.classList.add("show");
+    document.getElementById("modalDate").innerText = date;
+    document.getElementById("modalText").innerText = text;
+  }
+  function closeModal() {
+    const modal = document.getElementById("modal");
+    modal.classList.remove("show");
+    setTimeout(() => modal.style.display = "none", 400);
+  }
+</script>
+
+</body>
+</html>
